@@ -129,7 +129,9 @@ async Sign(@Arg("input") input: UserSign): Promise<UsersSign> {
   @Mutation(() => UserType)
 async updateUser(@Arg("input") input: UpdateUserInput): Promise<UserType> {
   try {
+    console.log("Update");
     const { id, name, age, hobby, company_id, column_value, pair,nam} = input;
+    console.log(input);
     const ide=await Users.findOne({where:{name:nam}});
     const main_id=ide.dataValues.id;
 
