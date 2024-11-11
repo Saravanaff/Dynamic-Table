@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import jwt from 'jsonwebtoken';
 
-const Auth = (Component) => {
-  return (props) => {
+const Auth = (WrappedComponent) => {
+  const WithAuth = (props) => {
     const router = useRouter();
 
     useEffect(() => {
@@ -26,8 +26,13 @@ const Auth = (Component) => {
       }
     }, [router]);
 
-    return <Component {...props} />;
+    return <WrappedComponent {...props} />;
   };
+
+  // Add a display name for better debugging
+  WithAuth.displayName = `WithAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
+
+  return WithAuth;
 };
 
 export default Auth;

@@ -14,7 +14,7 @@ import {
   CREATE_COM,
   GET_COM,
   GET_CO
-} from "./queries";
+} from "../../public/queries";
 import Button from "@mui/material/Button";
 import {useRouter} from 'next/router';
 import {
@@ -114,11 +114,9 @@ function Second() {
   }, [getid2]);
 
   useEffect(() => {
-    console.log(data);
     if (data) {
       setdati(data.users);
     }
-    console.log(company);
   }, [data]);
   useEffect(() => {
     if (companyData && companyData.company) {

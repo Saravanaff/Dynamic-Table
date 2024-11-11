@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Box, Button, TextField, Typography } from '@mui/material';
-import { REG_USER,LOG_USER} from './queries';
+import { REG_USER,LOG_USER} from '../../public/queries';
 import { useMutation } from '@apollo/client';
 import { useRouter } from 'next/router';
 function  Home(){
