@@ -14,7 +14,7 @@ import {
   CREATE_COM,
   GET_COM,
   GET_CO
-} from "../../public/queries";
+} from "../../lib/queries";
 import Button from "@mui/material/Button";
 import {useRouter} from 'next/router';
 import {
