@@ -51,3 +51,12 @@ form{
   justify-content: space-between;
   width:80vw
 }
+.vel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.in{
+  width: 20rem;
+}

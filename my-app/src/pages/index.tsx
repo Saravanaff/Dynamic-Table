@@ -92,50 +92,49 @@ function  Home(){
         p: 3,
         borderRadius: 2,
         boxShadow: 3,
-      }}
+      }} className='vel'
     >
-        <div className='sign'>
-      <Typography variant="h5" component="h1" gutterBottom>
-        {isRegistering ? 'Register' : 'Sign In'}
-      </Typography>
-      {isRegistering && (
+      <div className='sign'>
+        <Typography variant="h5" component="h1" gutterBottom>
+          {isRegistering ? 'Register' : 'Sign In'}
+        </Typography>
+        {isRegistering && (
+          <TextField
+            label="Name"
+            variant="outlined"
+            type="text"
+            value={name}
+            onChange={handleNameChange}
+            sx={{ mb: 2 }}
+            required className='in'
+          />
+        )}
         <TextField
-          label="Name"
-          variant="outlined"
-          type="text"
-          fullWidth
-          value={name}
-          onChange={handleNameChange}
+        className='in'
+          label="Email"
+          variant='filled'
+          type="email"
+          value={email}
+          onChange={handleEmailChange}
           sx={{ mb: 2 }}
           required
         />
-      )}
-      <TextField
-        label="Email"
-        variant="outlined"
-        type="email"
-        fullWidth
-        value={email}
-        onChange={handleEmailChange}
-        sx={{ mb: 2 }}
-        required
-      />
-      <TextField
-        label="Password"
-        variant="outlined"
-        type="password"
-        fullWidth
-        value={password}
-        onChange={handlePasswordChange}
-        sx={{ mb: 2 }}
-        required
-      />
-      <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mb: 2 }}>
-        {isRegistering ? 'Register' : 'Sign In'}
-      </Button>
-      <Button variant="text" color="secondary" onClick={toggleForm} fullWidth>
-        {isRegistering ? 'Already have an account? Sign In' : "Don't have an account? Register"}
-      </Button>
+        <TextField
+        className='in'
+          label="Password"
+          variant="filled"
+          type="password"
+          value={password}
+          onChange={handlePasswordChange}
+          sx={{ mb: 1 }}
+          required
+        />
+        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mb: 2 }}>
+          {isRegistering ? 'Register' : 'Sign In'}
+        </Button>
+        <Button variant="text" color="secondary" onClick={toggleForm} fullWidth>
+          {isRegistering ? 'Already have an account? Sign In' : "Don't have an account? Register"}
+        </Button>
       </div>
     </Box>
   );
