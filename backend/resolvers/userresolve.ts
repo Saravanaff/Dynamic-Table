@@ -131,7 +131,6 @@ async updateUser(@Arg("input") input: UpdateUserInput): Promise<UserType> {
   try {
     console.log("Update");
     const { id, name, age, hobby, company_id, column_value, pair,nam} = input;
-    console.log(input);
     const ide=await Users.findOne({where:{name:nam}});
     const main_id=ide.dataValues.id;
 
@@ -142,26 +141,30 @@ async updateUser(@Arg("input") input: UpdateUserInput): Promise<UserType> {
 
     console.log("User Updated Successfully");
     const existingValues = await UserValues.findAll({ where: { user_id: id,main_id:main_id } });
+    console.log(existingValues);
     if (existingValues && Array.isArray(existingValues)) {
       for (let i = 0; i < pair.length; i++) {
         const key = pair[i];
         const value = column_value[i];
         const existingValue = existingValues.find((item) => item.keys === key);
-
         if (existingValue) {
           await UserValues.update(
             { values: value },
             { where: { id: Number(existingValue.id),main_id:main_id} }
           );
         } else {
-          await UserValues.create({ user_id: id, keys: key, values: value,main_id:main_id });
+          console.log(id);
+          await UserValues.create({ user_id: id, keys: key, values: value,main_id:main_id,company_id:company_id });
         }
       }
     } else {
+
       for (let i = 0; i < pair.length; i++) {
         const key = pair[i];
         const value = column_value[i];
-        await UserValues.create({ user_id: id, keys: key, values: value });
+        console.log("else");
+        console.log(id);
+        await UserValues.create({ user_id: id, keys: key, values: value,company_id:company_id });
       }
     }
 

@@ -201,8 +201,8 @@ function Second() {
         });
 
         setColumn("");
-        await refetch();
-        await recompanyData();
+        refetch();
+        recompanyData();
     } catch (error) {
         console.error("Error creating column:", error);
     }
@@ -218,7 +218,7 @@ function Second() {
       const company_name=dycompany;
       console.log("company creating");
       const id=5
-      await createcom({
+      createcom({
         variables:{
           input:{
             company_name,

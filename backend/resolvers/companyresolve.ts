@@ -108,6 +108,7 @@ export class CompanyResolver {
         main_id:main_id
       });
       console.log("Company created successfully");
+      return 0;
     }
     catch(err){
       console.error(err);
@@ -156,4 +157,3 @@ export class CompanyResolver {
   }
   
 }
-
